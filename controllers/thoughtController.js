@@ -86,11 +86,11 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  async addThoughtResponse(req, res) {
+  async addThoughtReaction(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $addToSet: { responses: req.body } },
+        { $addToSet: { reactions: req.body } },
         { runValidators: true, new: true }
       );
 
@@ -103,11 +103,11 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  async removeThoughtResponse(req, res) {
+  async removeThoughtReaction(req, res) {
     try {
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $pull: { reactions: { responseId: req.params.responseId } } },
+        { $pull: { reactions: { reactionId: req.params.reactionId } } },
         { runValidators: true, new: true }
       )
 
