@@ -76,19 +76,36 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  async addThoughtReaction(req, res) {
+  async addUserFriend(req, res) {
     try {
-      const thought = await Thought.findOneAndUpdate(
-        { _id: req.params.thoughtId },
-        { $addToSet: { reactions: req.body } },
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { friends: req.params.friendId }},
         { runValidators: true, new: true }
       );
 
-      if (!thought) {
-        return res.status(404).json({ message: 'No thought with this id!' });
+      if (!user) {
+        return res.status(404).json({ message: 'No user with this id!' });
       }
 
-      res.json(thought);
+      res.json(user);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+  async removeUserFriend(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $pull: { friends: { friends: req.params.friendId } } },
+        { runValidators: true, new: true }
+      )
+
+      if (!user) {
+        return res.status(404).json({ message: 'No user with this id!' });
+      }
+
+      res.json(user);
     } catch (err) {
       res.status(500).json(err);
     }
