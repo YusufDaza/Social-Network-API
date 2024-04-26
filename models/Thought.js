@@ -19,7 +19,7 @@ const thoughtSchema = new Schema(
 
     username: {
       type: String,
-      required: trusted
+      required: true
     },
     reactions: [reactionSchema],
   },
