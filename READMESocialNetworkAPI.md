@@ -17,21 +17,35 @@
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+1. Install Node.js and npm.
+2. Install MongoDB.
+3. Create a new Node.js project on your terminal.
+4. Initialize the Node.js project.
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+1. Create the server and define routes. 
+2. Open `server.js` and set up your Express server and define your API routes.
+3. Start MongoDB by running the following command: `mongod`.
+4. Test API endpoints with Insomnia:
+    - GET Users: Send a GET request to http://localhost:3000/users to retrieve a list of users.
+    - POST Users: Send a POST request to http://localhost:3000/users with JSON data in the body to create a new user.
+    - GET Thoughts: Send a GET request to http://localhost:3000/thoughts to retrieve a list of thoughts.
+    - POST Thoughts: Send a POST request to http://localhost:3000/thoughts with JSON data in the body to create a new thought.
+    - PUT Thoughts: Send a PUT request to http://localhost:3000/thoughts/{thoughtId} to update an existing thought.
+    - DELETE Thoughts: Send a DELETE request to http://localhost:3000/thoughts/{thoughtId} to delete a thought.
+5. Testing Reactions and Friend Requests with Insomnia.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+## Screenshot
 
+![alt text](Assets/Screenshot00.png)
+    
 ## Features
 
-If your project has a lot of features, list them here.
+<a href="https://insomnia.rest/">Insomnia</a>
+
+<a href="https://www.mongodb.com/try/download/community">MongoDB</a>
 
 ## MIT License
 
